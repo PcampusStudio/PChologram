@@ -1,7 +1,7 @@
 ![Image of PChologram](https://www.pcampus.net/uploads/imgs/PChologram.png)
 
 **PCAMPUS HOLOGRAM**
-This is hologram plugin for Pcampus Network ( play.pcampus.net) 
+plugin for Pcampus Network ( play.pcampus.net) 
 
 VERY BASIC hologram plugin for the Spigot Minecraft server platform. 
 
