@@ -1,0 +1,10 @@
+name: PChologram
+version: ${project.version}
+main: me.pcampus.pchologram.PChologram
+api-version: 1.17
+authors: [PcampusNetwork]
+description: This is holo plugin for Pcmapus Network
+website: www.pcampus.net
+commands:
+  pcholo:
+    description: holo command
