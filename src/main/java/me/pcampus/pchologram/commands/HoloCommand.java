@@ -1,7 +1,6 @@
 package me.pcampus.pchologram.commands;
 
-import me.pcampus.pchologram.PChologram;
-import me.pcampus.pchologram.object.HoloUser;
+import me.pcampus.pchologram.object.HologramUser;
 import me.pcampus.pchologram.utilties.InfoUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,7 +14,7 @@ public class HoloCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        HoloUser user = new HoloUser(sender);
+        HologramUser user = new HologramUser(sender);
 
         if (args.length == 0) {
             // User wants help argument

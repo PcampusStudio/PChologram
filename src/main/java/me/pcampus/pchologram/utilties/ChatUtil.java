@@ -22,4 +22,20 @@ public class ChatUtil {
         }
         return str;
     }
+
+    public static String convertIntoStringWithNewLines(List<String> list) {
+        String str = "";
+        for (String content : list) {
+            if (str.equals("")) {
+                str = content;
+            } else {
+                str = str + "\n" + content;
+            }
+        }
+        return str;
+    }
+
+    // ["hello, NattaChannel", "Welcome to Pcampus Network"]
+    // change to "hello, NattaChannel\nWelcome to Pcampus Network
+
 }

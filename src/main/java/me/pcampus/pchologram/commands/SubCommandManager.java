@@ -1,5 +1,8 @@
 package me.pcampus.pchologram.commands;
 
+import me.pcampus.pchologram.commands.subcommands.CreateSubCommand;
+import me.pcampus.pchologram.commands.subcommands.HelpSubCommand;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +14,7 @@ public class SubCommandManager {
     private SubCommandManager() {
         // TODO add sub commands
         subCommands.put("help",new HelpSubCommand());
+        subCommands.put("create",new CreateSubCommand());
 
 
     }

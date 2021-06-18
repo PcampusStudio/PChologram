@@ -1,10 +1,11 @@
-package me.pcampus.pchologram.commands;
+package me.pcampus.pchologram.commands.subcommands;
 
-import me.pcampus.pchologram.object.HoloUser;
+import me.pcampus.pchologram.commands.SubCommand;
+import me.pcampus.pchologram.object.HologramUser;
 
 public class HelpSubCommand extends SubCommand {
 
-    public void execute(HoloUser user, String[] args) {
+    public void execute(HologramUser user, String[] args) {
         int page;
         if (args.length == 0) {
             //send page one
@@ -21,7 +22,7 @@ public class HelpSubCommand extends SubCommand {
         sendHelp(user, page);
     }
 
-    private void sendHelp(HoloUser user, int page) {
+    private void sendHelp(HologramUser user, int page) {
         user.sendMessageWithPrefix("&c&lComming soon! (Requested page " + page + ")");
     }
 }
