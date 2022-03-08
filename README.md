@@ -8,8 +8,8 @@ VERY BASIC hologram plugin for the Spigot Minecraft server platform.
 Tutorial : https://github.com/PcampusNetwork/PChologram/wiki
 
 ## Supported
-Spigot 1.17.1
-Spigot 1.18.2
+- Spigot 1.17.1
+- Spigot 1.18.2
 
 ## Commands
 Command | Description
