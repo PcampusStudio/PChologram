@@ -1,8 +1,8 @@
 name: PChologram
 version: ${project.version}
-main: me.pcampus.pchologram.PChologram
-api-version: 1.17
-authors: [PcampusNetwork]
+main: net.pcampus.pchologram.PChologram
+api-version: '1.13'
+authors: [PcampusNetwork, Garfieldcmix]
 description: This is holo plugin for Pcmapus Network
 website: www.pcampus.net
 commands:

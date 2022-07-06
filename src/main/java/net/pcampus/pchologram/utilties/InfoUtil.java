@@ -1,6 +1,6 @@
-package me.pcampus.pchologram.utilties;
+package net.pcampus.pchologram.utilties;
 
-import me.pcampus.pchologram.PChologram;
+import net.pcampus.pchologram.PChologram;
 
 public class InfoUtil {
 

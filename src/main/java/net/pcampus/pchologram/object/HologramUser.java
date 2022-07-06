@@ -1,6 +1,6 @@
-package me.pcampus.pchologram.object;
+package net.pcampus.pchologram.object;
 
-import me.pcampus.pchologram.utilties.ChatUtil;
+import net.pcampus.pchologram.utilties.ChatUtil;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 

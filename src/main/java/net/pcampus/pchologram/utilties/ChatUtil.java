@@ -1,4 +1,4 @@
-package me.pcampus.pchologram.utilties;
+package net.pcampus.pchologram.utilties;
 
 import org.bukkit.ChatColor;
 
