@@ -3,8 +3,14 @@ version: ${project.version}
 main: net.pcampus.pchologram.PChologram
 api-version: '1.13'
 authors: [PcampusNetwork, Garfieldcmix]
+softdepend: [ ProtocolLib ]
 description: This is holo plugin for Pcmapus Network
 website: www.pcampus.net
 commands:
   pcholo:
     description: holo command
+
+permissions:
+  pchologram.command.reload:
+    default: op
+    description: Allow user to reload the plugin.

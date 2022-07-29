@@ -36,8 +36,6 @@ public class FileManager {
 		if (!plugin.getDataFolder().exists()) {
 			plugin.getDataFolder().mkdir();
 		}
-		plugin.getConfig().options().copyDefaults(true);
-		plugin.saveDefaultConfig();
 
 		dataFile = new File(plugin.getDataFolder(), "data.yml"); checkFile(dataFile);
 		dataConfig = YamlConfiguration.loadConfiguration(dataFile);
@@ -76,4 +74,5 @@ public class FileManager {
 	public void saveDataConfig() {
 		saveConfig(this.dataFile, this.dataConfig);
 	}
+
 }

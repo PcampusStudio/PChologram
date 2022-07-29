@@ -4,13 +4,8 @@ import net.pcampus.pchologram.PChologram;
 import net.pcampus.pchologram.commands.PChologramCommand;
 import net.pcampus.pchologram.commands.SubCommand;
 import net.pcampus.pchologram.object.Hologram;
-import net.pcampus.pchologram.object.HologramLocation;
 import net.pcampus.pchologram.object.HologramUser;
 import org.bukkit.command.CommandSender;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class DeleteCommand extends SubCommand {
 	DeleteCommand(PChologram plugin, PChologramCommand cmd) {

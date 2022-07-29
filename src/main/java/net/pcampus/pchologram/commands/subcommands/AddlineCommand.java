@@ -5,6 +5,7 @@ import net.pcampus.pchologram.commands.PChologramCommand;
 import net.pcampus.pchologram.commands.SubCommand;
 import net.pcampus.pchologram.object.Hologram;
 import net.pcampus.pchologram.object.HologramUser;
+import net.pcampus.pchologram.utilties.ChatUtil;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
@@ -26,27 +27,57 @@ public class AddlineCommand extends SubCommand {
 		}
 
 		if (args.length <= 2 ) {
-			user.sendMessageWithPrefix("&c/pcholo addline <name> <content>");
+			user.sendMessageWithPrefix("&c/pcholo addline <name> [line] <content>");
 			return;
 		}
 
 		String name = args[1];
 
 		List<String> argsList = new ArrayList<>(Arrays.asList(args));
-		argsList.remove(0); argsList.remove(0);
+		argsList.remove(0);
+		argsList.remove(0);
 
-		StringBuilder content = new StringBuilder("");
-		for (String string : argsList) {
-			content.append(string).append(" ");
-		}
-		content.deleteCharAt(content.length() - 1);
+		if (args.length == 3) {
+			StringBuilder content = new StringBuilder("");
+			for (String string : argsList) {
+				content.append(string).append(" ");
+			}
+			content.deleteCharAt(content.length() - 1);
 
-		Hologram hologram = new Hologram(name);
-		if (!hologram.isCreated()) {
-			user.sendMessageWithPrefix("&cThat name doesn't exist!");
+			Hologram hologram = new Hologram(name);
+			if (!hologram.isCreated()) {
+				user.sendMessageWithPrefix("&cThat name doesn't exist!");
+			} else {
+				hologram.addContent(content.toString());
+				user.sendMessageWithPrefix("&aAdded new line to \"" + name + "\".");
+			}
+		} else if (args.length == 4) {
+			if (!ChatUtil.isStringInt(args[2])) {
+				user.sendMessageWithPrefix("&c/pcholo addline <name> [line] <content>");
+				return;
+			}
+			int line = Integer.parseInt(args[2]) - 1;
+
+			argsList.remove(0);
+
+			StringBuilder content = new StringBuilder("");
+			for (String string : argsList) {
+				content.append(string).append(" ");
+			}
+			content.deleteCharAt(content.length() - 1);
+
+			Hologram hologram = new Hologram(name);
+			if (!hologram.isCreated()) {
+				user.sendMessageWithPrefix("&cThat name doesn't exist!");
+			} else {
+				if (hologram.isIndexOut(line)) {
+					user.sendMessageWithPrefix("That line is out of range!");
+				}
+				hologram.addContent(line, content.toString());
+				user.sendMessageWithPrefix("&aAdded new line to \"" + name + "\".");
+			}
 		} else {
-			hologram.addContent(content.toString());
-			user.sendMessageWithPrefix("&aAdded new line to " + name + ".");
+			user.sendMessageWithPrefix("&c/pcholo addline <name> [line] <content>");
 		}
 	}
 

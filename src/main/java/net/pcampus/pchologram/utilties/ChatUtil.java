@@ -35,6 +35,24 @@ public class ChatUtil {
         return str;
     }
 
+    public static boolean isStringDouble(String s) {
+        try {
+            Double.parseDouble(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public static boolean isStringInt(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     // ["hello, NattaChannel", "Welcome to Pcampus Network"]
     // change to "hello, NattaChannel\nWelcome to Pcampus Network
 

@@ -6,9 +6,14 @@ import net.pcampus.pchologram.commands.PChologramCommand;
 import net.pcampus.pchologram.object.Hologram;
 import net.pcampus.pchologram.utilties.FileManager;
 import org.bstats.bukkit.Metrics;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Entity;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -22,11 +27,18 @@ public final class PChologram extends JavaPlugin {
         return instance.getLogger();
     }
 
+    public static Map<String, List<Entity>> hologramMap = new HashMap<>();
+
     private String version = "null";
 
     @Override
     public void onEnable() {
         instance = this;
+
+        if (!setupProtocolLib()) {
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
 
         final Properties properties = new Properties();
         try {
@@ -40,6 +52,8 @@ public final class PChologram extends JavaPlugin {
         FileManager.gc().setup(this);
 
         new PChologramCommand(this).register();
+
+        Bukkit.getPluginManager().registerEvents(new ListenerManager(), this);
 
         metrics = new Metrics(this, 15671);
 
@@ -59,6 +73,8 @@ public final class PChologram extends JavaPlugin {
                         "&5    \\|__|     \\|_______|\\|__|\\|__|\\|_______|\\|_______|\\|_______|\\|_______|\\|__|\\|__|\\|__|\\|__|\\|__|     \\|__|\n"));
 
         Hologram.loadHologram();
+
+
     }
 
     @Override
@@ -70,5 +86,13 @@ public final class PChologram extends JavaPlugin {
 
     public static PChologram getInstance() {
         return instance;
+    }
+
+    private boolean setupProtocolLib() {
+        if (Bukkit.getPluginManager().getPlugin("ProtocolLib") == null) {
+            getServer().getConsoleSender().sendMessage(ChatColor.RED + "Disabled due to no ProtocolLib found!");
+            return false;
+        }
+        return true;
     }
 }

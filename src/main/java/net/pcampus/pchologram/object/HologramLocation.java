@@ -33,6 +33,13 @@ public class HologramLocation {
 		this.z = location.getZ();
 	}
 
+	public HologramLocation(HologramLocation holoLocation) {
+		this.world = holoLocation.world;
+		this.x = holoLocation.x;
+		this.y = holoLocation.y;
+		this.z = holoLocation.z;
+	}
+
 	public HologramLocation(String configString) {
 		try {
 			List<String> configStringList = Arrays.asList(configString.split(","));
@@ -45,6 +52,13 @@ public class HologramLocation {
 			e.printStackTrace();
 			PChologram.logger().log(Level.WARNING, ChatColor.YELLOW + "------------------------------");
 		}
+	}
+
+	public HologramLocation add(double x, double y, double z) {
+		this.x += x;
+		this.y += y;
+		this.z += z;
+		return new HologramLocation(this.world, this.x, this.y, this.z);
 	}
 
 	public Location toLocation() {

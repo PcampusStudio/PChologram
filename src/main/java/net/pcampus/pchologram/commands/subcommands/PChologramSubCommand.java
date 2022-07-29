@@ -19,7 +19,10 @@ public class PChologramSubCommand {
 		commands.add(new CreateCommand(plugin, cmd));
 		commands.add(new DeleteCommand(plugin, cmd));
 		commands.add(new AddlineCommand(plugin, cmd));
+		commands.add(new RemovelineCommand(plugin, cmd));
+		commands.add(new MoveCommand(plugin, cmd));
 		commands.add(new HelpCommand(plugin, cmd));
+		commands.add(new ReloadCommand(plugin, cmd));
 
 		return commands;
 	}
